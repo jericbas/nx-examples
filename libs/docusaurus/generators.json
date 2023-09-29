@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "docusaurus-generator": {
+      "factory": "./src/generators/docusaurus-generator/generator",
+      "schema": "./src/generators/docusaurus-generator/schema.json",
+      "description": "docusaurus-generator generator"
+    }
+  }
+}
