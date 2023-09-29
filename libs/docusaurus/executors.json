@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "start": {
+      "implementation": "./src/executors/start/executor",
+      "schema": "./src/executors/start/schema.json",
+      "description": "start executor"
+    }
+  }
+}

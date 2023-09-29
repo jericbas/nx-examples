@@ -43,7 +43,8 @@
         "lintFilePatterns": [
           "libs/docusaurus/**/*.ts",
           "libs/docusaurus/package.json",
-          "libs/docusaurus/generators.json"
+          "libs/docusaurus/generators.json",
+          "libs/docusaurus/executors.json"
         ]
       }
     },
