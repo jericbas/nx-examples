@@ -1,17 +1,17 @@
 {
   "$schema": "http://json-schema.org/schema",
   "$id": "DocusaurusGenerator",
-  "title": "Docusaurus Generator Options Schema",
+  "title": "",
   "type": "object",
   "properties": {
     "name": {
       "type": "string",
-      "description": "The name of the Docusaurus project",
+      "description": "",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "What name would you like to use for your Docusaurus project?"
+      "x-prompt": "What name would you like to use?"
     }
   },
   "required": [

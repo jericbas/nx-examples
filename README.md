@@ -3,9 +3,19 @@
 
 
 ```
-nx generate @nx-example/docusaurus:docusaurus-generator --name=my-new-docusaurus-site
+nx generate @nx-example/docusaurus:docusaurus-generator --name=docs
 ```
 
 
 
+
+
+# Executor
+
+## Run sample
+
+```
+nx run nx-example:docusaurus --command=start
+
+```
 

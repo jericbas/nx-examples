@@ -2,6 +2,8 @@ import {
   addProjectConfiguration,
   formatFiles,
   generateFiles,
+  readJson,
+  updateJson,
   Tree,
 } from '@nx/devkit';
 import * as path from 'path';
@@ -19,7 +21,7 @@ export async function docusaurusGeneratorGenerator(
     console.error(`Cannot create a new project ${options.name} at ${projectRoot}. It already exists.`);
   } else {
     // Create a new Docusaurus site with TypeScript using create-docusaurus
-    execSync(`npx create-docusaurus@latest ${projectRoot} classic --typescript`, { stdio: 'inherit' });
+    execSync(`npx create-docusaurus@latest ${projectRoot} classic --typescript -s`, { stdio: 'inherit' });
 
     // Add Nx project configuration
     addProjectConfiguration(tree, options.name, {
@@ -29,6 +31,30 @@ export async function docusaurusGeneratorGenerator(
       targets: {
         // Add your Nx targets here, if any
       },
+    });
+
+    // Update root package.json dependencies and devDependencies
+    const rootPackageJsonPath = 'package.json';
+
+    updateJson(tree, rootPackageJsonPath, (json) => {
+      const newDependencies = {
+        "@docusaurus/core": "2.4.3",
+        "@docusaurus/preset-classic": "2.4.3",
+        "@mdx-js/react": "^1.6.22",
+        "clsx": "^1.2.1",
+        "prism-react-renderer": "^1.3.5",
+      };
+
+      const newDevDependencies = {
+        "@docusaurus/module-type-aliases": "2.4.3",
+        "@tsconfig/docusaurus": "^1.0.5",
+      };
+
+      return {
+        ...json,
+        dependencies: { ...json.dependencies, ...newDependencies },
+        devDependencies: { ...json.devDependencies, ...newDevDependencies },
+      };
     });
   }
 
